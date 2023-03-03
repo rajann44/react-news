@@ -16,7 +16,7 @@ export class News extends Component {
 
     async componentDidMount(){
         this.setState({loading: true})
-        let url = `https://newsapi.org/v2/everything?q=apple&from=2023-03-01&to=2023-03-01&sortBy=popularity&apiKey=5240ee568e1d4b5cbc1c12177ac5f84c&pageSize=${this.props.pageSize}&page=1`;
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=5240ee568e1d4b5cbc1c12177ac5f84c&pageSize=${this.props.pageSize}&page=1`;
         let data = await fetch(url);
         let parsedData = await data.json();
         console.log(parsedData)
@@ -27,7 +27,7 @@ export class News extends Component {
     handlePrevious = async ()=>{
         console.log("Handle Previous")
         this.setState({loading: true})
-        let url = `https://newsapi.org/v2/everything?q=apple&from=2023-03-01&to=2023-03-01&sortBy=popularity&apiKey=5240ee568e1d4b5cbc1c12177ac5f84c&pageSize=${this.props.pageSize}&page=${this.state.page - 1}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=5240ee568e1d4b5cbc1c12177ac5f84c&pageSize=${this.props.pageSize}&page=${this.state.page - 1}`;
         let data = await fetch(url);
         let parsedData = await data.json();
         console.log(parsedData)
@@ -41,7 +41,7 @@ export class News extends Component {
     handleNext = async ()=>{
         console.log("Handle Next")
         this.setState({loading: true})
-        let url = `https://newsapi.org/v2/everything?q=apple&from=2023-03-01&to=2023-03-01&sortBy=popularity&apiKey=5240ee568e1d4b5cbc1c12177ac5f84c&pageSize=${this.props.pageSize}&page=${this.state.page + 1}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=5240ee568e1d4b5cbc1c12177ac5f84c&pageSize=${this.props.pageSize}&page=${this.state.page + 1}`;
         let data = await fetch(url);
         let parsedData = await data.json();
         console.log(parsedData)
